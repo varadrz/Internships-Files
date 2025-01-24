@@ -3,9 +3,12 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
+
+#Mentioning all the work done accordingly in comments starting with '#'
+
+
 # Step 1: Read the data from the Excel file
 try:
-    # Make sure to use the correct file path
     df = pd.read_excel('P:\\Internships\\Invest4Edu\\student_scores.xlsx')
     print("Excel file loaded successfully!")
 except Exception as e:
@@ -36,7 +39,7 @@ def generate_report_card(student_data, filename):
     subject_scores += student_data['subject_scores']
 
     # Create the table for the header
-    table = Table(data + [["", ""]])  # Add a blank line between sections
+    table = Table(data + [["", ""]])  
     table.setStyle(TableStyle([
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
@@ -58,7 +61,7 @@ def generate_report_card(student_data, filename):
     
     elements.append(subject_table)
 
-    # Build the PDF
+    
     pdf.build(elements)
 
 # Step 4: Loop through the student data and generate PDF for each student
